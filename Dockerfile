@@ -15,6 +15,9 @@ RUN wget -q http://download.comodo.com/cavmgl/download/installs/1000/standalone/
     DEBIAN_FRONTEND=noninteractive /opt/COMODO/post_setup.sh && \
     rm -f cav-linux_1.1.268025-1_amd64.deb
 
+# update the virus definitions
+ADD http://download.comodo.com/av/updates58/sigs/bases/bases.cav /opt/COMODO/scanners/bases.cav
+
 ENTRYPOINT ["/opt/COMODO/cmdscan"]
 
 CMD ["-h"]
