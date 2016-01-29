@@ -18,6 +18,9 @@ RUN wget -q http://download.comodo.com/cavmgl/download/installs/1000/standalone/
 # update the virus definitions
 ADD http://download.comodo.com/av/updates58/sigs/bases/bases.cav /opt/COMODO/scanners/bases.cav
 
+# make the virus signature database globally readable
+RUN chmod 644 /opt/COMODO/scanners/bases.cav
+
 ENTRYPOINT ["/opt/COMODO/cmdscan"]
 
 CMD ["-h"]
